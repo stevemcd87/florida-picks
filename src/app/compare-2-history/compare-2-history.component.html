@@ -1,0 +1,8 @@
+<div *ngIf=" lottoList && !comparedList">
+    <table>
+        <tr *ngFor="let i of  lottoList | slice: 0:100">
+            <td>{{i.id}}</td>
+            <td>{{i.lotto}}</td>
+        </tr>
+    </table>
+</div>
