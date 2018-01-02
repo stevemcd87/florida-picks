@@ -1,75 +1,54 @@
+// import {UserLotto, LottoGame} from '../lotto'; import {UserLotto,
+// UserLotteryList, WinningLottery, ComparedList, AverageWinnings} from
+// '../lotto';
+
 export class UserLotto {
-    game: LottoGame;
-    option?: LottoOption;
-    winningLottery?: WinningLottery;
+    game : LottoGame;
+    winningLottery?: ComparedWinningLottery;
     userLotteryList?: UserLotteryList[];
-    comparedULL2WL?: ComparedULL2WL;
+    comparedList?: ComparedList[];
 }
 export class LottoGame {
-    name: string;
-    lotteryLength: number;
-    maxNumber: number;
-    logic: LottoLogic;
-    averageWinnings?: AverageWinnings[];
-    options?: LottoOption[];
-    moneyBall?: number;
+    name : string;
+    valueName?: string;
+    lotteryLength : number;
+    maxNumber : number;
+    averageWinnings?: AverageWinnings;
     winningHistory?: WinningLottery[];
-}
-export enum LottoLogic {
-    Pick3 = 1,
-    FloridaLotto,
-    Powerball
-}
-export class LottoOption {
-    name?: string;
-    lottoNumbers: LottoNumber[];
-}
-export class LottoNumber {
-    startNumber: number;
-    increment:   number;
-    endNumber:   number;
-}
-export class  LNInfo {
-    value: number;
-    min?: MinMax;
-    max?: MinMax;
-}
-
- export class MinMax {
-    value?: number;
-    rules: string[];
-}
-export class ComparedULL2WL {
-    winningNumber: WinningLottery;
-    matched: Matched[];
 }
 export class WinningLottery {
     date?: string;
     time?: string;
-    winningNumber: number[];
-    x?: number;
-    numbersMatched?: number;
+    winningNumber?: number[];
+}
+export class ComparedWinningLottery {
+    date?: string;
+    numberDate?: number;
+    time?: string;
+    winningNumber?: number[];
+    straight?: boolean;
+    boxWay?: string;
+    winnings?: number;
 }
 export class UserLotteryList {
-    id: number;
-    lotto: number[];
-}
-export class Matched {
-    matchedNumbers: number;
-    userLotto: UserLotteryList[];
-}
-export class CompareLL2WH {
-    userLotto: UserLotteryList;
-    numbersMatched: Matched2[];
-    totalMoneyWon?: number;
-}
-export class Matched2 {
-    numberMatched: number;
-    quantNumberMatched: number;
-    topWinners?: WinningLottery[];
-    moneyWon?: number;
+    id : number;
+    lotto : number[];
+    
 }
 export class AverageWinnings {
-    numberMatched: number;
-    moneyWon: number;
+    straight : number;
+    box : BoxWay[];
+}
+export class ComparedList {
+    lottoListID : number;
+    lottoNumber : number[];
+    straight?: number;
+    box?: number;
+    boxWay?: string;
+    winningDates?: ComparedWinningLottery[];
+    moneyWon?: number;
+}
+export class BoxWay {
+    boxWay : string;
+    winnings: number;
 }

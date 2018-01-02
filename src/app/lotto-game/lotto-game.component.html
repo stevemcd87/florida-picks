@@ -1,11 +1,11 @@
-<form *ngIf="!userLotto" [formGroup]="appForm">
+<div *ngIf="!userLotto">
     <div *ngFor="let game of lottoGames; let i = index">
-        <input type="radio" formControlName="lotteryGameOptions" value="{{i}}">{{game.name}}
+        <img class="lottoGame" src="assets/pics/{{game.valueName}}.png" (click)="onOffLottoGame(i)" alt="{{game.valueName}}">
     </div>
-    <button *ngIf="lottoGameControls.valid" type="button" (click)="onOffLottoGame()">Next</button>
-</form>
+</div>
 <div *ngIf="userLotto">
-    <button (click)="onOffLottoGame()">{{userLotto.game.name}}</button>
-
+    <div>
+        <img class="lottoGame" src="assets/pics/{{userLotto.game.valueName}}.png" (click)="onOffLottoGame()" alt="{{userLotto.game.valueName}}">
+    </div>
     <app-compare-2-history *ngIf="userLotto.userLotteryList" [userLotto]="userLotto"></app-compare-2-history>
 </div>

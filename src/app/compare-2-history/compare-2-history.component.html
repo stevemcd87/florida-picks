@@ -1,8 +1,66 @@
-<div *ngIf=" lottoList && !comparedList">
-    <table>
-        <tr *ngFor="let i of  lottoList | slice: 0:100">
-            <td>{{i.id}}</td>
-            <td>{{i.lotto}}</td>
-        </tr>
-    </table>
+<div *ngIf="!selectedLotto">
+    <form id="orderByForm" [formGroup]="orderByForm">
+
+        <div formGroupName="searchLotto">
+            <strong>Search for Lotto</strong>
+            <div id="searchLotto" formArrayName="lottoNumbers">
+                <div id="lottoNumbers" *ngFor="let item of lottoNumbersControls.controls; let i = index">
+                    <input class="searchForLotto" formControlName="{{i}}" type="number">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div *ngIf="foundLotto">
+                <table>
+                    <tr>
+                        <th>Lotto</th>
+                        <th>Straight</th>
+                        <th>Box</th>
+                        <th>Money Won</th>
+                    </tr>
+                    <tr>
+                        <td>{{foundLotto.lottoNumber.join(' , ')}}</td>
+                        <td>{{foundLotto.straight}}</td>
+                        <td>{{foundLotto.box}}</td>
+                        <td>${{foundLotto.moneyWon.toFixed(2)}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <label>
+          <input type="radio" formControlName="orderByOptions" value="straight">Straight
+        </label>
+        <label>
+          <input type="radio" formControlName="orderByOptions" value="box">Box
+        </label>
+        <label>
+          <input type="radio" formControlName="orderByOptions" value="moneyWon">Money Won
+        </label>
+        <select formControlName="direction">
+        <option value="ascending">Low to High</option>
+        <option value="descending">High to Low</option>
+      </select>
+
+
+    </form>
+
+    <div id="comparedList" *ngIf=" comparedList">
+        <table>
+            <tr>
+                <th>Lotto</th>
+                <th>Straight</th>
+                <th>Box</th>
+                <th>Money Won</th>
+            </tr>
+            <tr *ngFor="let lotto of comparedList" (click)="onSelect(lotto)">
+                <td>{{lotto.lottoNumber.join(' , ')}}</td>
+                <td *ngIf="lotto.straight > -1">{{lotto.straight}}</td>
+                <td>{{lotto.box}}</td>
+                <td>${{lotto.moneyWon.toFixed(2)}}</td>
+            </tr>
+        </table>
+    </div>
 </div>
+
+<app-lotto-detail *ngIf="selectedLotto" [lotto]="selectedLotto" (removeLotto)="unselectLotto($event)"></app-lotto-detail>

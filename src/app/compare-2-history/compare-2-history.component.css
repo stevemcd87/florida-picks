@@ -1,0 +1,37 @@
+div input.searchForLotto {
+    display: inline-block;
+    width: 3em;
+}
+
+div div#comparedList {
+    display: block;
+    margin: 0 auto;
+}
+
+div#searchLotto {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+div#lottoNumbers {
+    display: inline;
+    margin: 0 auto;
+}
+
+form#orderByForm {
+    display: block;
+    text-align: center;
+    padding-top: 1em;
+}
+
+
+/*
+th {
+    display: block;
+    margin: 0 auto;
+}
+
+td {
+    margin: 0 auto;
+} */

@@ -1,0 +1,27 @@
+<div id="ldTop">
+    <p> <button id="back2List" (click)="back2List()">Back to list</button> <strong> Lotto : {{lotto.lottoNumber.join(' , ')}}</strong> </p>
+
+    <p>{{lotto.boxWay}} to win when playing box</p>
+
+    <p>Won by BOX {{lotto.box}} times including {{lotto.straight}} won by STRAIGHT</p>
+    <p>Total Money Won : ${{lotto.moneyWon.toFixed(2)}} (straight/box)</p>
+</div>
+<div>
+
+
+    <table id="winningDates">
+        <caption>Winning Dates</caption>
+        <tr>
+            <th>Dates</th>
+            <th>Time</th>
+            <th>Winning Numbers</th>
+            <th>Money Won</th>
+        </tr>
+        <tr id="winningDates" *ngFor="let wd of lotto.winningDates">
+            <td>{{wd.date}}</td>
+            <td>{{wd.time}}</td>
+            <td>{{wd.winningNumber.toString()}}</td>
+            <td>${{wd.winnings.toFixed(2)}}</td>
+        </tr>
+    </table>
+</div>
