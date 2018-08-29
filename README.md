@@ -1,27 +1,7 @@
-# FloridaPicks
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## App's Description
+This app compares all lotto possibilities to that games winning history for the year of 2017. Creating a list of lotto numbers and some detailed information about that lotto, such as how many times it won Straight and Box and the amount of money won if playing Straight/Box.
+You may click this [link](https://stevemcd87.github.io/florida-picks/) to experience the app.
+## User's Experience
+  - User first chooses a game they would like to get the statistics of.
+  - Once game is chosen user sees a list of all lotto possibilities for said game and general stats of each lotto(eg. Money Won for the year, Box Number WIns, Straight Number Wins)
+  - The user can then click on an individual lotto and get more detailed information about said lotto(eg. All Winning Dates, Amount Won per Winning)
